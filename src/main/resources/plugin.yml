@@ -1,0 +1,46 @@
+name: MobMoney
+version: '${project.version}'
+main: ru.mobmoney.MobMoney
+
+# Oldest api-version value recognised by Spigot is '1.13'.
+# Servers below 1.13 (1.8–1.12) do not check this field at all,
+# so the plugin loads fine everywhere.
+api-version: '1.13'
+
+author: BohdanStepantsov
+description: >
+  Reward players with money for killing mobs.
+  Compatible: 1.8 – 1.21 | Bukkit / Spigot / Paper / Purpur / Folia
+  Languages: RU / EN / UK
+website: boda-server.infy.uk
+
+depend:
+  - Vault
+
+softdepend:
+  - Essentials
+  - CMI
+  - EssentialsX
+
+commands:
+  mobmoney:
+    description: MobMoney management command
+    usage: /mobmoney <reload|info [mob]>
+    aliases:
+      - mm
+      - mobm
+
+permissions:
+  mobmoney.*:
+    description: All MobMoney permissions
+    default: op
+    children:
+      mobmoney.use:
+        description: Use the /mobmoney command
+        default: true
+      mobmoney.receive:
+        description: Receive money rewards for killing mobs
+        default: true
+      mobmoney.admin:
+        description: Reload config and view detailed info
+        default: op

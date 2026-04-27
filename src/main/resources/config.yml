@@ -1,0 +1,321 @@
+# ╔══════════════════════════════════════════════════════════════╗
+# ║       MobMoney  —  config.yml                                ║
+# ║  Compatible: Minecraft 1.8 – 1.21                           ║
+# ║  Platforms:  Bukkit / Spigot / Paper / Purpur / Folia        ║
+# ╚══════════════════════════════════════════════════════════════╝
+#
+# Mobs that do not exist on the current server version are
+# automatically skipped — no errors, no crashes.
+
+settings:
+  # Interface language: ru | en | uk
+  language: en
+
+  # Show reward in the Action Bar (above the hotbar)
+  action-bar: true
+
+  # Show full-screen Title when a boss-tier mob is killed
+  title-on-boss: true
+
+  # Give rewards for mobs that spawned from a spawner block?
+  # false = anti-grinder protection
+  spawner-mobs-reward: false
+
+  # Log every reward to the server console
+  log-kills: false
+
+  # Multiply ALL rewards by this factor  (1.5 = +50%)
+  global-multiplier: 1.0
+
+  # Symbol appended to money amounts in messages
+  currency-symbol: "$"
+
+# ──────────────────────────────────────────────────────────────
+#  Mob rewards.
+#  Each entry needs:
+#    min: <integer>   — minimum payout
+#    max: <integer>   — maximum payout  (min == max → fixed)
+#
+#  EntityType names follow the MODERN (1.16+) naming convention.
+#  The plugin automatically tries legacy aliases on older servers.
+#    ZOMBIFIED_PIGLIN  →  PIG_ZOMBIE  on ≤1.15
+#    MOOSHROOM         →  MUSHROOM_COW on some older builds
+#    EVOKER            →  EVOCATION_ILLAGER on ≤1.11
+# ──────────────────────────────────────────────────────────────
+mobs:
+
+  # ── Passive mobs (1.8+) ──────────────────────────────────────
+  PIG:
+    min: 250
+    max: 550
+  COW:
+    min: 250
+    max: 550
+  SHEEP:
+    min: 250
+    max: 550
+  CHICKEN:
+    min: 250
+    max: 550
+  RABBIT:     # 1.8+
+    min: 250
+    max: 550
+  HORSE:
+    min: 300
+    max: 600
+  DONKEY:
+    min: 300
+    max: 600
+  MULE:
+    min: 300
+    max: 600
+  MOOSHROOM:  # MUSHROOM_COW on old builds — alias handled automatically
+    min: 400
+    max: 700
+  OCELOT:
+    min: 350
+    max: 650
+  WOLF:
+    min: 300
+    max: 600
+  SQUID:
+    min: 200
+    max: 450
+
+  # ── 1.9+ mobs ─────────────────────────────────────────────────
+  POLAR_BEAR: # 1.10+
+    min: 600
+    max: 1200
+  LLAMA:      # 1.11+
+    min: 280
+    max: 580
+
+  # ── 1.12+ mobs ─────────────────────────────────────────────────
+  PARROT:
+    min: 200
+    max: 500
+
+  # ── 1.13+ mobs ─────────────────────────────────────────────────
+  TURTLE:
+    min: 400
+    max: 800
+  DOLPHIN:
+    min: 800
+    max: 1500
+  COD:
+    min: 100
+    max: 250
+  SALMON:
+    min: 100
+    max: 250
+  TROPICAL_FISH:
+    min: 150
+    max: 350
+  PUFFERFISH:
+    min: 200
+    max: 450
+
+  # ── 1.14+ mobs ─────────────────────────────────────────────────
+  CAT:
+    min: 250
+    max: 550
+  FOX:
+    min: 300
+    max: 600
+  WANDERING_TRADER:
+    min: 2500
+    max: 4500
+
+  # ── 1.15+ mobs ─────────────────────────────────────────────────
+  BEE:
+    min: 150
+    max: 350
+
+  # ── 1.17+ mobs ─────────────────────────────────────────────────
+  AXOLOTL:
+    min: 400
+    max: 800
+  GLOW_SQUID:
+    min: 300
+    max: 600
+  GOAT:
+    min: 350
+    max: 650
+
+  # ── 1.19+ mobs ─────────────────────────────────────────────────
+  FROG:
+    min: 200
+    max: 450
+  TADPOLE:
+    min: 100
+    max: 250
+  ALLAY:
+    min: 500
+    max: 1000
+
+  # ── 1.20+ mobs ─────────────────────────────────────────────────
+  SNIFFER:
+    min: 2000
+    max: 3000
+
+  # ── 1.20.5+ (Armadillo from 1.20.4 snapshot) ──────────────────
+  ARMADILLO:
+    min: 400
+    max: 800
+
+  # ── Villagers (all versions) ────────────────────────────────────
+  VILLAGER:
+    min: 3000
+    max: 5000
+
+  # ── Hostile — common (1.8+) ─────────────────────────────────────
+  ZOMBIE:
+    min: 400
+    max: 900
+  SKELETON:
+    min: 400
+    max: 900
+  CREEPER:
+    min: 500
+    max: 1000
+  SPIDER:
+    min: 350
+    max: 750
+  CAVE_SPIDER:
+    min: 450
+    max: 850
+  ENDERMAN:
+    min: 600
+    max: 1200
+  WITCH:
+    min: 700
+    max: 1300
+  SLIME:
+    min: 300
+    max: 700
+  MAGMA_CUBE:
+    min: 400
+    max: 800
+  SILVERFISH:
+    min: 200
+    max: 500
+  BLAZE:
+    min: 700
+    max: 1300
+  GHAST:
+    min: 1000
+    max: 1800
+  ZOMBIE_VILLAGER:
+    min: 800
+    max: 1400
+  WITHER_SKELETON:
+    min: 1200
+    max: 2000
+  GUARDIAN:     # 1.8+
+    min: 800
+    max: 1500
+  ELDER_GUARDIAN: # 1.8+
+    min: 3000
+    max: 5000
+  ENDERMITE:    # 1.8+
+    min: 300
+    max: 600
+  SHULKER:      # 1.9+
+    min: 1000
+    max: 2000
+
+  # ── Illagers (1.11+) ─────────────────────────────────────────────
+  # EVOKER → EVOCATION_ILLAGER on 1.11 servers (alias automatic)
+  EVOKER:
+    min: 1500
+    max: 2500
+  VINDICATOR:
+    min: 800
+    max: 1400
+  VEX:
+    min: 400
+    max: 800
+  # ILLUSIONER → ILLUSION_ILLAGER on 1.11 (alias automatic)
+  ILLUSIONER:
+    min: 2000
+    max: 3500
+
+  # ── 1.13+ hostile ────────────────────────────────────────────────
+  PHANTOM:
+    min: 600
+    max: 1100
+  DROWNED:
+    min: 450
+    max: 950
+
+  # ── 1.14+ hostile ────────────────────────────────────────────────
+  HUSK:
+    min: 450
+    max: 950
+  STRAY:
+    min: 450
+    max: 950
+  PILLAGER:
+    min: 400
+    max: 900
+  RAVAGER:
+    min: 2000
+    max: 3500
+
+  # ── Nether  (1.16+) ──────────────────────────────────────────────
+  # ZOMBIFIED_PIGLIN → PIG_ZOMBIE on ≤1.15 (alias automatic)
+  ZOMBIFIED_PIGLIN:
+    min: 500
+    max: 1000
+  PIGLIN:
+    min: 600
+    max: 1100
+  PIGLIN_BRUTE:
+    min: 1200
+    max: 2000
+  HOGLIN:
+    min: 800
+    max: 1500
+  ZOGLIN:
+    min: 900
+    max: 1600
+  STRIDER:
+    min: 400
+    max: 800
+
+  # ── Golems (1.8+) ────────────────────────────────────────────────
+  IRON_GOLEM:
+    min: 1200
+    max: 2300
+  SNOW_GOLEM:
+    min: 800
+    max: 1500
+
+  # ── Undead horses (1.8+) ─────────────────────────────────────────
+  SKELETON_HORSE:
+    min: 1000
+    max: 1800
+  ZOMBIE_HORSE:
+    min: 1000
+    max: 1800
+
+  # ── 1.19+ hostile ────────────────────────────────────────────────
+  BOGGED:          # 1.21+
+    min: 600
+    max: 1200
+
+  # ── 1.21+ mobs ───────────────────────────────────────────────────
+  BREEZE:
+    min: 1500
+    max: 2500
+
+  # ── Bosses (fixed reward) ─────────────────────────────────────────
+  WARDEN:         # 1.19+  — boss tier, very dangerous
+    min: 15000
+    max: 25000
+  ENDER_DRAGON:   # 1.8+   — set min = max for a fixed amount
+    min: 250000
+    max: 250000
+  WITHER:         # 1.8+
+    min: 75000
+    max: 75000
