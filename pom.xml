@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
 
     <name>MobMoney</name>
-    <description>Reward players with money for killing mobs — 1.8–1.21 compatible</description>
+    <description>Reward players with money for killing mobs — 1.8–26.1 compatible</description>
 
     <properties>
         <maven.compiler.release>8</maven.compiler.release>
@@ -33,10 +33,11 @@
 
     <dependencies>
 
+        <!-- Spigot API - обновлен до 26.1.2 -->
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.21.4-R0.1-SNAPSHOT</version>
+            <version>26.1.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 
@@ -46,6 +47,14 @@
             <artifactId>VaultAPI</artifactId>
             <version>1.7</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- bStats Metrics 3.1.0 (последняя версия) -->
+        <dependency>
+            <groupId>org.bstats</groupId>
+            <artifactId>bstats-bukkit</artifactId>
+            <version>3.1.0</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
@@ -67,7 +76,6 @@
                 maven-compiler-plugin 3.13 + JDK 21:
                   -release 8  →  compiles to Java 8 bytecode AND restricts
                                  the API to what was in Java 8 stdlib.
-                  This is strictly better than the old -source 8 -target 8 pair.
             -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -79,7 +87,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Single fat-jar (Vault + Spigot are provided, so jar stays tiny) -->
+            <!-- Shade plugin с релокацией bStats -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -90,6 +98,22 @@
                         <goals><goal>shade</goal></goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
+                            
+                            <!-- Явно включаем только bStats (Vault и Spigot = provided) -->
+                            <artifactSet>
+                                <includes>
+                                    <include>org.bstats:*</include>
+                                </includes>
+                            </artifactSet>
+                            
+                            <!-- РЕЛОКАЦИЯ bStats - критически важно! -->
+                            <relocations>
+                                <relocation>
+                                    <pattern>org.bstats</pattern>
+                                    <!-- Перемещаем в пространство вашего плагина -->
+                                    <shadedPattern>ru.mobmoney.bstats</shadedPattern>
+                                </relocation>
+                            </relocations>
                         </configuration>
                     </execution>
                 </executions>

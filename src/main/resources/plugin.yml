@@ -14,8 +14,12 @@ description: >
   Languages: RU / EN / UK
 website: boda-server.infy.uk
 
+folia-supported: true
+
 depend:
   - Vault
+
+softdepend: [FoliaEconomyX]
 
 softdepend:
   - Essentials
